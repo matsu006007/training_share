@@ -55,8 +55,6 @@
         width: 70px;
       }
 
-
-
       .nav-item{
         margin-right:40px;
       }
@@ -68,8 +66,6 @@
       .pagination {
         justify-content: center;
       }
-
-
 
      .title-name{
        margin-right: 20px;
@@ -111,16 +107,17 @@
           <h1 class="text-white">TrainingShare</h1>
         </div>
       <div class="nickname-content">
-        <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-warning"}) %></b>さん</h5>
+        <%# <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-warning"}) %></b>さん</h5>
+            <h5>ようこそ</h5>
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
         <li class="nav-item ">
           <%# <%= link_to("マイページ", user_path(current_user.id), {class: "nav-link btn btn-warning text-dark w-100"}) %>
-              <%= link_to("マイページ", root_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
+              <%= link_to("マイページ", tweets_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
         </li>
         <li class="nav-item ">
           <%# <%= link_to("新規投稿",  new_tweet_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
-              <%= link_to("新規投稿",  root_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
+              <%= link_to("新規投稿",  tweets_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
         </li>
         <li class="nav-item">
           <%= link_to("ログアウト", destroy_user_session_path, {class: "nav-link btn btn-warning text-dark w-100", method: :delete}) %>
