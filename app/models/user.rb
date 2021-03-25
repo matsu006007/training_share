@@ -8,7 +8,10 @@ class User < ApplicationRecord
     validates :nickname
     validates :comment
     validates :target
+    validates :training_history_id
+    validates :prefecture_id
   end
+  
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
 end
