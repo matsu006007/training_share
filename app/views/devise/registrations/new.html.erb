@@ -75,8 +75,8 @@
   <header>
     <div>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link btn btn-warning" aria-current="page" href="/" >トップページへ戻る</a>
-        <a class="nav-link btn btn-warning" href="/users/sign_in" >ログイン</a>
+        <%= link_to("トップページへ戻る", root_path, {class: "nav-link btn btn-warning text-dark"}) %>
+        <%= link_to("サインイン", new_user_registration_path, {class: "nav-link btn btn-warning text-dark"}) %>
       </nav>
     </div>
   </header>
