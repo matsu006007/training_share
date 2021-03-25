@@ -73,8 +73,8 @@
       <div class="display-1"><strong>Training Share</strong></div>
       <p class="lead mt-4">みんなで日々のトレーニングをアウトプットしよう！</p>
       <p class="lead mt-4">
-        <a href="/" class="btn btn-lg btn-secondary fw-bold border-white bg-warning w-25">サインイン</a>
-        <a href="/" class="btn btn-lg btn-secondary fw-bold border-white bg-warning w-25">ログイン</a>
+        <%= link_to("サインイン", new_user_registration_path, {class: "btn btn-lg btn-secondary fw-bold border-white bg-warning w-25"}) %>
+        <%= link_to("ログイン", new_user_session_path, {class: "btn btn-lg btn-secondary fw-bold border-white bg-warning w-25"}) %>
       </p>
     </div>
   </div>
