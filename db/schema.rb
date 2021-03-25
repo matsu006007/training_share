@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2021_03_25_041030) do
     t.string "nickname", null: false
     t.text "comment", null: false
     t.string "target", null: false
+    t.string "training_history_id", null: false
+    t.string "prefecture_id", null: false
     t.string "image"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
