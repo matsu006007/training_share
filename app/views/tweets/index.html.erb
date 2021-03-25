@@ -49,7 +49,7 @@
       }
 
       .navbar-brand {
-        background: url("asstes/arm.jpg") no-repeat left center;
+        background: url("assets/arm.png") no-repeat left center;
         background-size: cover;
         height: 50px;
         width: 70px;
@@ -107,8 +107,7 @@
           <h1 class="text-white">TrainingShare</h1>
         </div>
       <div class="nickname-content">
-        <%# <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-warning"}) %></b>さん</h5>
-            <h5>ようこそ</h5>
+        <h5>ようこそ<b><%= link_to("#{current_user.nickname}", tweets_path, {class: "text-warning"}) %></b>さん</h5>
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
         <li class="nav-item ">
