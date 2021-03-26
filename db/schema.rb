@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 2021_03_25_041030) do
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "prefecture_id", null: false
+    t.string "training_frequency_id", null: false
+    t.string "target"
+    t.text "comment"
+    t.string "image"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

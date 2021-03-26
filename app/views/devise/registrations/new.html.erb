@@ -109,6 +109,16 @@
             <%= f.password_field :password_confirmation, autocomplete: 'current-password', placeholder: '上記で設定したパスワード', class: 'form-control' %>
           </div>
 
+          <div class="form-group d-flex flex-column">
+            <%= f.label :prefecture %>
+            <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select mb-2"}) %>
+          </div>
+
+          <div class="form-group d-flex flex-column">
+            <%= f.label :training_frequency %>
+            <%= f.collection_select(:training_frequency_id, TrainingFrequency.all, :id, :name, {}, {class:"training-frequency-select mb-2"}) %>
+          </div>
+
           <div class="form-group">
             <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
           </div>
