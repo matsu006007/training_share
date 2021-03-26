@@ -10,4 +10,5 @@ class Tweet < ApplicationRecord
   belongs_to :user
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
+  has_one_attached :image
 end
