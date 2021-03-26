@@ -6,10 +6,18 @@ class User < ApplicationRecord
 
     with_options presence: true do
       validates :nickname
-      validates :prefecture_id
-      validates :training_frequency_id
+      with_options numericality: { other_than: 1 } do
+        validates :prefecture_id
+        validates :training_frequency_id
+      end
     end
   
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
+
+  has_many :tweets
+  extend ActiveHash::Associations::ActiveRecordExtensions do
+    belongs_to :prefecture
+    belongs_to :training_frequency
+  end
 end
