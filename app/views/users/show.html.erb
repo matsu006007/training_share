@@ -95,9 +95,10 @@
         color: #e54747;
     }
 
-     .pagination{
-       padding-top: 10px;
+    .pagination{
+       padding-top: 5px;
      }
+
 
 </style>
 
@@ -243,11 +244,10 @@
           </tbody>
         <% end %>
         </table>
+        <%= paginate @tweets%>
         </div>
       </div>
     </main>
-<%# <%= paginate @tweets%>
-
 
 
   <footer class="fixed-bottom mt-auto text-white-50  text-center bg-secondary">
