@@ -10,4 +10,7 @@ class TrainingFrequency < ActiveHash::Base
     { id: 8, name: '毎週土日' },
     { id: 9, name: 'ほぼ毎日' }
   ]
+
+  include ActiveHash::Associations
+  has_many :users
   end
