@@ -122,6 +122,10 @@
         font-size: 15px;
         color: #e54747;
     }
+
+    .updated{
+      background-color: #FFFF66;
+    }
 </style>
 
     
@@ -191,7 +195,11 @@
               </tr>
               <tr>
                 <th>投稿日</th>
-                <td><%= l @tweet.created_at %></td>
+                <% unless @tweet.created_at == @tweet.updated_at%>
+                  <td><%= l @tweet.created_at %><p class="updated text-center" ><%= l @tweet.updated_at %>に編集されました</p></td>
+                <% else %>
+                  <td><%= l @tweet.created_at %></td>
+                <% end %>
               </tr>
               <tr>
                 <th>内容</th>
