@@ -94,9 +94,9 @@
     <link href="cover.css" rel="stylesheet">
   </head>
 
-  <body class="d-flex h-100 text-left text-dark p-3 p-sm-5 mb-4 bg-img" >
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
-      <nav class="navbar navbar-expand-md navbar-dark bg-secondary bg-gradient fixed-top pt-2 pb-2 d-flex align-items-center">
+<body class="d-flex h-100 text-left text-dark p-3 p-sm-5 mb-4 bg-img" >
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary bg-gradient fixed-top pt-2 pb-2 d-flex align-items-center">
       <div class="container-fluid">
         <a class="navbar-brand rounded-circle" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,15 +115,15 @@
         </li>
         <li class="nav-item ">
           <%# <%= link_to("新規投稿",  new_tweet_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
-              <%= link_to("新規投稿",  tweets_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
+              <%= link_to("新規投稿",  new_tweet_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
         </li>
         <li class="nav-item">
           <%= link_to("ログアウト", destroy_user_session_path, {class: "nav-link btn btn-warning text-dark w-100", method: :delete}) %>
         </li>
       </ul>
     </div>
-  </div>
-</nav>
+    </div>
+  </nav>
 
   <main class="px-3" style= "margin-top:30px">
     <div class="container-fluid">

@@ -43,7 +43,7 @@
       .bg-img{
         background-image: url("/assets/main_6.png");
         background-position: center center;
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-size: cover;
         position: relative;
       }
@@ -116,14 +116,14 @@
         </button>
         <div class="collapse navbar-collapse position-relative" id="navbarsExampleDefault pull-right">
           <div class="title-name">
-            <h1 class="text-white">ShareTraining</h1>
+            <h1 class="text-white">TrainingShare</h1>
           </div>
           <div class="nickname-content">
             <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-warning"}) %></b>さん</h5>
           </div>
           <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
             <li class="nav-item ">
-              <%= link_to("投稿する", user_path(current_user.id), {class: "nav-link btn btn-warning text-dark w-100"}) %>
+              <%= link_to("新規投稿", new_tweet_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
             </li>
             <li class="nav-item ">
               <%= link_to("投稿一覧へ戻る", tweets_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
@@ -142,15 +142,15 @@
           <div class="card-body ">
             <div class="h2 bg-warning text-center"><%= "プロフィール" %></div>
           </div>
-           <%# <% if @user.image.blank? %>
+           <% if @user.image.blank? %>
              <div class="image">
               <img src="<%= asset_path "no_image.png" %>" class = "icon_image img-thumbnail rounded-circle mx-auto d-block mb-3">
              </div>
-          <%# <% else %>
-            <%# <div class="image">
-              <img src=<%= @user.image %> <%# class = "icon_image img-thumbnail rounded-circle mx-auto d-block mb-3">
-            <%# </div>
-          <%# <% end %>
+          <% else %>
+            <div class="image">
+              <img src=<%= @user.image %> class = "icon_image img-thumbnail rounded-circle mx-auto d-block mb-3">
+            </div>
+          <% end %>
 
           <table class="table">
             <tbody class="border-bottom border-2">
@@ -158,21 +158,32 @@
                 <th>ニックネーム</th>
                 <td><%= @user.nickname %></td>
               </tr>
+
               <tr>
-                <%# <th>目標</th>
+                <th>お住まいの都道府県</th>
+                <td><%= @user.prefecture.name %></td>
+              </tr>
+
+              <tr>
+                <th>トレーニングの頻度</th>
+                <td><%= @user.training_frequency.name %></td>
+              </tr>
+
+              <tr>
+                <th>目標</th>
                   <% if @user.target.blank?%>
-                    <%# <td>未登録</td>
+                    <td>未登録</td>
                   <% else %>
-                    <%# <td><%= @user.target %><%# </td>
-                  <%# <% end %>
+                    <td><%= @user.target %></td>
+                  <% end %>
               </tr>
               <tr>
-                <%# <th>コメント</th>
+                <th>コメント</th>
                   <% if @user.comment.blank? %>
-                    <%# <td>未登録</td>
+                    <td>未登録</td>
                   <% else %>
-                    <%# <td><%= @user.comment %><%# </td>
-                  <%# <% end %>
+                    <td><%= @user.comment %></td>
+                  <% end %>
               </tr>
             </tbody>
 

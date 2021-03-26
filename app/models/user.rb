@@ -16,8 +16,9 @@ class User < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX
 
   has_many :tweets
-  extend ActiveHash::Associations::ActiveRecordExtensions do
+  extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :prefecture
+  extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :training_frequency
-  end
+
 end
