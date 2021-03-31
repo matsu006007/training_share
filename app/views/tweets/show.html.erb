@@ -186,9 +186,9 @@
                   <%= link_to("#{@tweet.user.nickname}さん", user_path(@tweet.user), {class: "text-dark"}) %></a>
                 </div>
 
-              <%# <div class="like-content d-flex align-items-end" id="tweet_<%= @tweet.id %> <%# ">
-                <%# <%= render partial: "tweet", locals: { tweet: @tweet } %>
-              <%# </div> %>
+               <div class="like-content d-flex align-items-end" id="tweet_<%= @tweet.id %>">
+                 <%= render partial: "tweet", locals: { tweet: @tweet } %>
+               </div>
 
 
             </div>
