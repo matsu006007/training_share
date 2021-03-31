@@ -225,7 +225,7 @@
                 <th><%= link_to("#{tweet.title}", tweet_path(tweet.id), {class: "text-dark"}) %></th>
                 <th><%= link_to("#{l tweet.created_at}",tweet_path(tweet.id),{class: "text-dark"}) %></th>
                 <th>
-                  <%#<a class="fa fa-heart like-btn" style="font-size: 18px"><%= tweet.likes.count %><a>
+                  <a class="fa fa-heart like-btn" style="font-size: 18px"><%= tweet.likes.count %><a>
                 </th>
                 <% if tweet.genre_id == "9" %>
                   <th>

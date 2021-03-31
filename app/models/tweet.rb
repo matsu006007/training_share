@@ -11,4 +11,5 @@ class Tweet < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
   has_one_attached :image
+  has_many :likes
 end
