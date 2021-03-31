@@ -66,3 +66,4 @@ gem 'image_processing', '~> 1.2'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'mimemagic', '~> 0.3.0'
+gem "aws-sdk-s3", require: false
