@@ -13,10 +13,16 @@ class User < ApplicationRecord
     end
   
   has_many :tweets
+  has_many :likes
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :prefecture
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :training_frequency
 
   mount_uploader :image, AvaterUploader
+
+  def already_liked?(tweet)
+    self.likes.exists?(tweet_id: tweet.id)
+  end
+
 end
