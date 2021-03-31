@@ -68,4 +68,5 @@ gem 'kaminari'
 gem 'mimemagic', '~> 0.3.0'
 gem "aws-sdk-s3", require: false
 gem 'font-awesome-sass'
+gem 'fog-aws'
 
