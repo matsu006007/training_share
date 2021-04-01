@@ -21,6 +21,8 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @message = Message.new
+    @messages = @tweet.messages
     @like =Like.new
   end
 
