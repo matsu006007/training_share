@@ -12,4 +12,5 @@ class Tweet < ApplicationRecord
   belongs_to :genre
   has_one_attached :image
   has_many :likes
+  has_many :messages, dependent: :destroy
 end
