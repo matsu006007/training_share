@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   root "tops#index"
 
-  resources :tweets
+  resources :tweets do
+    resources :messages, only: [:create, :destroy]
+  end
 
   resources :users, only: :show
 
