@@ -14,6 +14,8 @@ class User < ApplicationRecord
   
   has_many :tweets
   has_many :likes
+  has_many :messages
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :prefecture
   extend ActiveHash::Associations::ActiveRecordExtensions
