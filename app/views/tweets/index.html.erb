@@ -85,6 +85,10 @@
      .pagination{
        padding-top: 10px;
      } 
+
+     .title-th{
+       width: 40%;
+     }
 </style>
 
     
@@ -148,7 +152,7 @@
     <tbody class="border-bottom border-2">
       <tr>
         <th><%= link_to("#{tweet.user.nickname}", user_path(tweet.user_id), {class: "text-dark"}) %></th>
-        <th><%= link_to("#{tweet.title}", tweet_path(tweet.id), {class: "text-dark"}) %></th>
+        <th class="title-th"><%= link_to("#{tweet.title}", tweet_path(tweet.id), {class: "text-dark"}) %></th>
         <th><%= link_to("#{l tweet.created_at}",tweet_path(tweet.id),{class: "text-dark"}) %></th>
         <% if tweet.genre_id == "9" %>
             <th>
