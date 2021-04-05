@@ -3,14 +3,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @tweets = @user.tweets.order("created_at DESC").page(params[:page]).per(5)
+    @tweets = @user.tweets.order('created_at DESC').page(params[:page]).per(5)
   end
 end
 
 private
 
 def Login_check
-  unless user_signed_in?
-    redirect_to root_path
-  end
+  redirect_to root_path unless user_signed_in?
 end
