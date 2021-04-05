@@ -14,5 +14,4 @@ class LikesController < ApplicationController
   def tweet_params
     @tweet = Tweet.find(params[:id])
   end
-
 end

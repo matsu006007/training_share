@@ -1,6 +1,6 @@
 class DestroyChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "destroy_channel"
+    stream_from 'destroy_channel'
   end
 
   def unsubscribed

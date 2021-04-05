@@ -1,9 +1,9 @@
 class TweetsController < ApplicationController
   before_action :Login_check
-  before_action :one_tweet, only: [:show, :edit, :update, :destroy] 
+  before_action :one_tweet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    @tweets = Tweet.includes(:user).order('created_at DESC').page(params[:page]).per(10)
   end
 
   def new
@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
   def show
     @message = Message.new
     @messages = @tweet.messages
-    @like =Like.new
+    @like = Like.new
   end
 
   def edit
@@ -44,18 +44,13 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    if @tweet.destroy
-      redirect_to user_path(@tweet.user_id)
-    end
+    redirect_to user_path(@tweet.user_id) if @tweet.destroy
   end
-
 
   private
 
   def Login_check
-    unless user_signed_in?
-      redirect_to root_path
-    end
+    redirect_to root_path unless user_signed_in?
   end
 
   def tweet_params
@@ -65,5 +60,4 @@ class TweetsController < ApplicationController
   def one_tweet
     @tweet = Tweet.find(params[:id])
   end
-
 end

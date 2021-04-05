@@ -7,9 +7,6 @@ class TopsController < ApplicationController
   private
 
   def Login_conf
-    if user_signed_in?
-      redirect_to tweets_path
-    end
+    redirect_to tweets_path if user_signed_in?
   end
-
 end
