@@ -114,20 +114,9 @@ HTML,SCSS,JavaScript,jquery,Ajax,bootstrap5,
 
 MySQL,Sequel Pro
 
-#### インフラ
-
-
-
-#### Webサーバー（本番環境)
-
-
-
-#### アプリケーションサーバー(本番環境)
-
-
 #### テスト
 
-RSpec
+RSpec,FactoryBot,Faker
 
 #### ソース管理
 
