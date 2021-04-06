@@ -2,3 +2,24 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              blank: "が入力されていません。"
+            email:
+              taken: "は既に使用されています。"
+              blank: "が入力されていません。"
+              invalid: "が使用できません。"
+            password:
+              blank: "が入力されていません。"
+              too_short: "は6文字以上入力してください"
+            password_confirmation:
+              confirmation: "が入力されていません。"
+            prefecture_id: 
+              other_than: "を選んでください"
+            training_frequency_id:
+              other_than: "を選んでください"
+            
