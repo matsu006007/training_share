@@ -138,9 +138,9 @@ VScode
 | Column  | Type  | Option |
 | ------- | ----- | ------ |
 | nickname | string | null: false |
-| image    | string | null: false |
-| target  | string | null: false  |
-| comment | text   | null: false  |
+| image    | string |  |
+| target  | string |   |
+| comment | text   |   |
 | prefecture_id | string | null: false  |
 | training_frequency | string | null: false  |
 | email    | string | null: false |
