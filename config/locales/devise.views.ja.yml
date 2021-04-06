@@ -6,8 +6,8 @@ ja:
         image: プロフィール画像（任意）
         target: 目標
         comment: コメント
-        prefecture: お住まいの都道府県
-        training_frequency: トレーニングの頻度
+        prefecture_id: お住まいの都道府県
+        training_frequency_id: トレーニングの頻度
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -147,3 +147,4 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+
