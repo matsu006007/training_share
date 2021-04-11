@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   before_action :Login_check
   before_action :one_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :user_check, only: [:edit]
 
   def index
     @tweets = Tweet.includes(:user).order('created_at DESC').page(params[:page]).per(10)
@@ -53,6 +54,12 @@ class TweetsController < ApplicationController
 
   def Login_check
     redirect_to root_path unless user_signed_in?
+  end
+
+  def user_check
+    unless @tweet.user == current_user
+      redirect_to tweets_path
+    end
   end
 
   def tweet_params
