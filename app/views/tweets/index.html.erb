@@ -133,10 +133,10 @@
       </div>
 
 
-<main class="px-3" style= "margin-top:30px">
+<main class="px-3 pb-5">
   <div class="container-fluid">
     <div class="card mx-auto shadow-lg" style="width: 75%;">
-    <div class="m-3">
+    <div class="m-2">
         <div class="card-body d-flex justify-content-between border-bottom border-info bg-info bg-gradient mb-1">
           <span class="display-6">みんなの投稿</span>
           <div class="icon d-flex align-items-end" style="margin-right: 30px;">
@@ -171,15 +171,15 @@
       <% end %>
       </tbody>
       </table>
-      <%= paginate @tweets%>
       </div>
+        <%= paginate @tweets%>
   </div>
   </div>
 </main>
 
 
 
-  <footer class="fixed-bottom mt-auto text-white-50  text-center bg-info bg-gradient" style="font-size: 15px;">
+  <footer class="fixed-bottom mt-auto text-white-50 text-center bg-info bg-gradient" style="font-size: 15px;">
     <p class="text-white">©︎ training record </p>
   </footer>
 </div>
