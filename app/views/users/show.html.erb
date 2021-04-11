@@ -157,34 +157,34 @@
           <table class="table">
             <tbody class="border-bottom border-2">
               <tr>
-                <th>ニックネーム</th>
-                <td><%= @user.nickname %></td>
+                <th class="style= width: 25%; ">ニックネーム</th>
+                <td class="style= width: 50%; "><%= @user.nickname %></td>
               </tr>
 
               <tr>
-                <th>お住まいの都道府県</th>
-                <td><%= @user.prefecture.name %></td>
+                <th class="style= width: 25%;">お住まいの都道府県</th>
+                <td class="style= width: 50%;"><%= @user.prefecture.name %></td>
               </tr>
 
               <tr>
-                <th>トレーニングの頻度</th>
-                <td><%= @user.training_frequency.name %></td>
+                <th class="style= width: 25%;">トレーニングの頻度</th>
+                <td class="style= width: 50%;"><%= @user.training_frequency.name %></td>
               </tr>
 
               <tr>
-                <th>目標</th>
+                <th class="style= width: 25%;">目標</th>
                   <% if @user.target.blank?%>
-                    <td>未登録</td>
+                    <td class="style= width: 50%;">未登録</td>
                   <% else %>
-                    <td><%= @user.target %></td>
+                    <td class="style= width: 50%;"><%= @user.target %></td>
                   <% end %>
               </tr>
               <tr>
-                <th>コメント</th>
+                <th class="style= width: 25%;">コメント</th>
                   <% if @user.comment.blank? %>
-                    <td>未登録</td>
+                    <td class="style= width: 50%;">未登録</td>
                   <% else %>
-                    <td><%= @user.comment %></td>
+                    <td class="style= width: 50%;"><%= @user.comment %></td>
                   <% end %>
               </tr>
             </tbody>
@@ -198,55 +198,46 @@
         </div>
 
         <div class="card mx-auto mt-5 mb-5" style="width: 50%;">
+        <div class="m-3">
           <div class="card-body">
             <div class="h2 bg-warning text-center"><%= "投稿一覧" %></div>
           </div>
         <table class="table table-hover">
           <thead class=" border-bottom border-primary table-light">
             <tr>
-              <th scope="col" class="w-20" style="font-size: 15px;">タイトル</th>
-              <th scope="col" class="w-20" style="font-size: 15px;">投稿日</th>
-              <th scope="col" class="w-20" style="font-size: 15px;">イイネ！</th>
-              <th scope="col" class="w-20" style="font-size: 15px;"></th>
+              <th scope="col" style="font-size: 15px; width: 50%;">タイトル</th>
+              <th scope="col" style="font-size: 15px; width: 25%;">投稿日</th>
             </tr>
           </thead>
         <% if @tweets.empty? %>
-          <tbody class="border-bottom border-2">
+          <tbody>
             <tr>
               <th>投稿はまだありません</th>
               <th></th>
               <th></th>
             </tr>
-          </tbody>
+            </tbody>
         <% else %>
+          <tbody>
         <% @tweets.each do |tweet| %>
-          <tbody class="border-bottom border-2">
               <tr>
-                <th><%= link_to("#{tweet.title}", tweet_path(tweet.id), {class: "text-dark"}) %></th>
-                <th><%= link_to("#{l tweet.created_at}",tweet_path(tweet.id),{class: "text-dark"}) %></th>
                 <th>
-                  <a class="fa fa-heart like-btn" style="font-size: 18px"><%= tweet.likes.count %><a>
+                  <%= link_to("#{tweet.title}", tweet_path(tweet.id), {class: "text-dark"}) %>
                 </th>
+                <th>
+                  <%= link_to("#{l tweet.created_at}",tweet_path(tweet.id),{class: "text-dark"}) %>
                 <% if tweet.genre_id == "9" %>
-                  <th>
-                    <a class="fas fa-clock text-danger" style="font-size:20px"></a>
-                  </th>
-                <% elsif tweet.genre_id == "10" %>
-                  <th>
-                    <a class="fas fa-clock text-warning" style="font-size:20px"></a>
-                  </th>
-                <% else %>
-                  <th>
-                    <a></a>
-                  </th>
+                    <a class="far fa-comments text-danger" style="font-size:20px"></a>
                 <% end %>
+                </th>
               </tr>
             <% end %>
-          </tbody>
         <% end %>
+        </tbody>
         </table>
         <%= paginate @tweets%>
         </div>
+      </div>
       </div>
     </main>
 
