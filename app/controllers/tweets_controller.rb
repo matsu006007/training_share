@@ -13,9 +13,10 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      redirect_to tweets_path
+      redirect_to tweets_path, notice: "投稿が完了しました。"
     else
       @tweet = Tweet.new(tweet_params)
+      flash.now[:alert] = "内容に誤りがあります。"
       render :new
     end
   end
@@ -36,15 +37,16 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
-      redirect_to tweet_path(@tweet.id)
+      redirect_to tweet_path(@tweet.id), notice: "投稿内容が更新されました。"
     else
       @tweet = Tweet.new(tweet_params)
+      flash.now[:alert] = "内容に誤りがあります。"
       render :edit
     end
   end
 
   def destroy
-    redirect_to user_path(@tweet.user_id) if @tweet.destroy
+    redirect_to tweets_path,notice: "投稿が削除されました。" 
   end
 
   private

@@ -9,8 +9,7 @@ class Genre < ActiveHash::Base
     { id: 7, name: '自重トレーニング' },
     { id: 8, name: 'エアロビクス' },
     { id: 9, name: '質問' },
-    { id: 10, name: '悩み' },
-    { id: 11, name: 'その他' }
+    { id: 10, name: 'その他' }
   ]
 
   include ActiveHash::Associations

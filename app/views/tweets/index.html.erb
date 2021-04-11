@@ -98,7 +98,7 @@
 
 <body class="d-flex h-100 text-left text-dark p-3 p-sm-5 mb-4 bg-img" >
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
-    <nav class="navbar navbar-expand-md navbar-dark bg-secondary bg-gradient fixed-top pt-2 pb-2 d-flex align-items-center">
+    <nav class="navbar navbar-expand-md navbar-dark bg-info bg-gradient fixed-top pt-2 pb-2 d-flex align-items-center">
       <div class="container-fluid">
         <a class="navbar-brand rounded-circle" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,77 +108,78 @@
         <div class="title-name">
           <h1 class="text-white">TrainingShare</h1>
         </div>
-      <div class="nickname-content">
-        <h5>ようこそ<b><%= link_to("#{current_user.nickname}", tweets_path, {class: "text-warning"}) %></b>さん</h5>
+      <div class="nickname-content" style="font-size: 20px;">
+        <h5>ようこそ<b><%= link_to("#{current_user.nickname}", tweets_path, {class: "text-dark"}) %></b>さん</h5>
       </div>
-      <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
-        <li class="nav-item ">
-              <%= link_to("マイページ", user_path(current_user.id), {class: "nav-link btn btn-warning text-dark w-100"}) %>
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y" style="font-size: 20px;">
+        <li class="nav-item d-flex align-items-center">
+          <i class="fas fa-dumbbell"></i>
+          <%= link_to("マイページ", user_path(current_user.id), {class: "nav-link text-dark w-100"}) %>
         </li>
-        <li class="nav-item ">
-              <%= link_to("新規投稿",  new_tweet_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
+        <li class="nav-item d-flex align-items-center">
+          <i class="fas fa-pen"></i>
+          <%= link_to("新規投稿",  new_tweet_path, {class: "nav-link text-dark w-100"}) %>
         </li>
-        <li class="nav-item">
-          <%= link_to("ログアウト", destroy_user_session_path, {class: "nav-link btn btn-warning text-dark w-100", method: :delete}) %>
+        <li class="nav-item d-flex align-items-center">
+          <i class="fas fa-door-open"></i>
+          <%= link_to("ログアウト", destroy_user_session_path, {class: "nav-link text-dark w-100", method: :delete}) %>
         </li>
       </ul>
     </div>
     </div>
   </nav>
+      <div class="flash-message" style="margin-top: 20px;">
+        <%= render 'layouts/notifications' %>
+      </div>
 
-  <main class="px-3" style= "margin-top:30px">
-    <div class="container-fluid">
-    <div class="card mx-auto " style="width: 50%;">
-  <div class="card-body d-flex justify-content-between" style="background-color: #FFFFDD">
-    <span class="display-6 bg-warning">みんなの投稿</span>
-      <div class="icon d-flex align-items-end">
-          <a class="fas fa-clock text-danger" style="font-size:20px"></a>
-          <a>← 質問</a>
-          <a class="fas fa-clock text-warning" style="font-size:20px"></a>
-          <a>← 相談 </a>
+
+<main class="px-3" style= "margin-top:30px">
+  <div class="container-fluid">
+    <div class="card mx-auto shadow-lg" style="width: 75%;">
+    <div class="m-3">
+        <div class="card-body d-flex justify-content-between border-bottom border-info bg-info bg-gradient mb-1">
+          <span class="display-6">みんなの投稿</span>
+          <div class="icon d-flex align-items-end" style="margin-right: 30px;">
+            <a class="far fa-comments text-danger" style="font-size:20px"></a>
+            <a>••• 質問 </a>
+          </div>
+        </div>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" style="font-size: 20px; width: 25%;">ニックネーム</th>
+            <th scope="col" style="font-size: 20px; width: 50%;">タイトル</th>
+            <th scope="col" style="font-size: 20px; width: 25%;">投稿日</th>
+          </tr>
+        </thead>
+        <tbody >
+      <% @tweets.each do |tweet| %>
+          <tr>
+            <td>
+              <%= link_to("#{tweet.user.nickname}", user_path(tweet.user_id), {class: "text-dark"}) %>
+            </td>
+            <td>
+              <%= link_to("#{tweet.title}", tweet_path(tweet.id), {class: "text-dark"}) %>
+            </td>
+            <td class="w-20">
+              <%= link_to("#{l tweet.created_at}",tweet_path(tweet.id),{class: "text-dark"}) %>
+              <% if tweet.genre_id == "9" %>
+                <a class="far fa-comments text-danger" style="font-size:20px"></a>
+              <% end %>
+            </td>
+      <% end %>
+      </tbody>
+      </table>
+      <%= paginate @tweets%>
       </div>
   </div>
-
-  <table class="table table-hover">
-    <thead class=" border-bottom border-primary" style="background-color: #DDDDDD">
-    <tr>
-      <th scope="col" class="w-20" style="font-size: 15px;">ニックネーム</th>
-      <th scope="col" class="w-20" style="font-size: 15px;">タイトル</th>
-      <th scope="col" class="w-20" style="font-size: 15px;">投稿日</th>
-      <th scope="col" class="w-20" style="font-size: 15px;"></th>
-    </tr>
-    </thead>
-  <% @tweets.each do |tweet| %>
-    <tbody class="border-bottom border-2">
-      <tr>
-        <th><%= link_to("#{tweet.user.nickname}", user_path(tweet.user_id), {class: "text-dark"}) %></th>
-        <th class="title-th"><%= link_to("#{tweet.title}", tweet_path(tweet.id), {class: "text-dark"}) %></th>
-        <th><%= link_to("#{l tweet.created_at}",tweet_path(tweet.id),{class: "text-dark"}) %></th>
-        <% if tweet.genre_id == "9" %>
-            <th>
-              <a class="fas fa-clock text-danger" style="font-size:20px"></a>
-            </th>
-        <% elsif tweet.genre_id == "10" %>
-            <th>
-              <a class="fas fa-clock text-warning" style="font-size:20px"></a>
-            </th>
-        <% else %>
-            <th>
-              <a></a>
-            </th>
-        <% end %>
-      </tr>
-    </tbody>
-  <% end %>
-  </table>
-  <%= paginate @tweets%>
   </div>
-</div>
 </main>
 
 
 
-  <footer class="fixed-bottom mt-auto text-white-50  text-center bg-secondary bg-gradient">
+  <footer class="fixed-bottom mt-auto text-white-50  text-center bg-info bg-gradient" style="font-size: 15px;">
     <p class="text-white">©︎ training record </p>
   </footer>
 </div>
