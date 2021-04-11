@@ -1,7 +1,7 @@
 ja:
   time:
     formats:
-      default: "%Y/%m/%d %H:%M:%S"
+      default: "%Y/%m/%d %H:%M"
   activerecord:
     errors:
       models:
@@ -22,4 +22,6 @@ ja:
               other_than: "を選んでください"
             training_frequency_id:
               other_than: "を選んでください"
-            
+            current_password:
+              invalid: "が違います"
+              blank: "が入力されていません"
