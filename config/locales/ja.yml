@@ -11,6 +11,8 @@ ja:
           user: ユーザー
         message:
           text: メッセージ
+          user: ユーザー
+          tweet: トレーニング記録
     errors:
       models:
         user:
@@ -48,4 +50,10 @@ ja:
           attributes:
             text:
               blank: "を入力してください。"
+            user:
+              blank: "が入力されていません。"
+              required: "が紐付いていません。"
+            tweet:
+              blank: "が入力されていません。"
+              required: "が紐付いていません。"
         
