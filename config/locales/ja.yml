@@ -9,6 +9,8 @@ ja:
           content: 内容
           genre_id: ジャンル
           user: ユーザー
+        message:
+          text: メッセージ
     errors:
       models:
         user:
@@ -42,3 +44,8 @@ ja:
             user:
               blank: "が入力されていません。"
               required: "が紐付いていません。"
+        message:
+          attributes:
+            text:
+              blank: "を入力してください。"
+        
