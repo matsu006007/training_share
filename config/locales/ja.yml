@@ -3,6 +3,12 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M"
   activerecord:
+    attributes:
+        tweet:
+          title: タイトル
+          content: 内容
+          genre_id: ジャンル
+          user: ユーザー
     errors:
       models:
         user:
@@ -15,13 +21,24 @@ ja:
               invalid: "が使用できません。"
             password:
               blank: "が入力されていません。"
-              too_short: "は6文字以上入力してください"
+              too_short: "は6文字以上入力してください。"
             password_confirmation:
               confirmation: "が入力されていません。"
             prefecture_id: 
-              other_than: "を選んでください"
+              other_than: "を選んでください。"
             training_frequency_id:
-              other_than: "を選んでください"
+              other_than: "を選んでください。"
             current_password:
-              invalid: "が違います"
-              blank: "が入力されていません"
+              invalid: "が違います。"
+              blank: "が入力されていません。"
+        tweet: 
+          attributes:
+            title:
+              blank: "が入力されていません。"
+            content:
+              blank: "が入力されていません。"
+            genre_id:
+              other_than: "を選択してください。"
+            user:
+              blank: "が入力されていません。"
+              required: "が紐付いていません。"
