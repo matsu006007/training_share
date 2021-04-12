@@ -17,6 +17,16 @@ RSpec.describe Message, type: :model do
         @message.valid?
         expect(@message.errors.full_messages).to include("メッセージ を入力してください。")
       end
+      it "ユーザーが紐付いていなければ投稿できない" do
+        @message.user = nil
+        @message.valid?
+        expect(@message.errors.full_messages).to include("ユーザー が紐付いていません。")
+      end
+      it "ツイートが紐付いていなければ投稿できない" do
+        @message.tweet = nil
+        @message.valid?
+        expect(@message.errors.full_messages).to include("トレーニング記録 が紐付いていません。")
+      end
     end
   end
 end
